@@ -433,12 +433,13 @@
 			size = <0x0 0x400000>;
 	};
 
-	ramoops_mem: ramoops_region {
-		compatible = "ramoops";
-		alloc-ranges = <0x0 0x00000000 0xffffffff 0xffffffff>;
-		size = <0x0 0x200000>;
-		pmsg-size = <0x200000>;
-		mem-type = <2>;
+	ramoops_mem: ramoops_region@ffd00000 {
+		compatible = "removed-dma-pool", "ramoops";
+		reg = <0 0xffd00000 0 0xc0000>;
+		record-size = <0x1000>;
+		console-size = <0x40000>;
+		pmsg-size = <0x40000>;
+		ftrace-size = <0x0>;
 	};
 };
 
